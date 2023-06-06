@@ -1,0 +1,113 @@
+
+::selection{
+    background-color: #ffc107;
+    color: black;
+}
+
+::placeholder{
+    color: #ffc10786 !important;
+}
+
+.active{
+    color: #ffc107 !important;
+}
+
+.nav-link:hover{
+    color: #ffc107 !important;
+}
+
+i{
+    opacity: 0.9 !important;
+}
+
+i:hover{
+    opacity: 1 !important;
+}
+
+#black-div{
+    min-height: 125px !important;
+    max-height: 125px !important;
+    overflow: visible;
+}
+
+.input-group span {
+    right: 6px;
+    top: 5px;
+}
+
+.input-group input {
+    background-color: black !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: #ffc107 !important;
+}
+
+.border-adjustment{
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.display-none{
+    display: none !important;
+}
+
+#search-list {
+    min-height: 40vh;
+    max-height: 52.6vh;
+    overflow-y: scroll;
+    border: 1px solid #ffc107 !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#search-list::-webkit-scrollbar {
+    display: none;
+}
+
+.list-group-item{
+    text-align: left !important;
+    background-color: black !important;
+    color: #ced5da !important;
+    border: none !important;
+}
+
+.list-group-item small i{
+    transition: all 0.15s ease-in;
+}
+
+.list-group-item small i:active{
+    scale: 0.9 !important;
+}
+
+.list-group-item:not(:last-child) {
+    border-bottom: 1px solid #ffc107 !important;
+}
+
+.list-group-item:focus{
+    background-color: black !important;
+    color: white !important;
+}
+
+.list-group-item:hover {
+    background-color: black !important;
+    color: #ffc107 !important;
+}
+
+.greeting-message{
+    opacity: 0.8 !important;
+    transition: all 0.15s ease-in;
+}
+
+.greeting-message:hover {
+    opacity: 1 !important;
+}
+
+.author{
+    transition: all 0.15s ease-in;
+}
+
+.author:hover{
+    color: #0d54be !important;
+}

@@ -1,0 +1,47 @@
+::selection{
+    background-color: #ffc107;
+    color: black;
+}
+
+body{
+    min-height: 100vh !important;
+}
+
+.content-holder{
+    opacity: 0.93 !important;
+    transition: all 0.15s ease-in-out;
+}
+
+.content-holder:hover{
+    opacity: 1 !important;
+}
+
+i{
+    transition: all 0.15s ease-in;
+    cursor: pointer;
+}
+
+i:active{
+    scale: 0.9 !important;
+}
+
+.nav-link:hover{
+    color: #ffc107 !important;
+}
+
+.author{
+    transition: all 0.15s ease-in;
+}
+
+.author:hover{
+    color: #0d54be !important;
+}
+
+.greeting-message{
+    opacity: 0.8 !important;
+    transition: all 0.15s ease-in;
+}
+
+.greeting-message:hover {
+    opacity: 1 !important;
+}
