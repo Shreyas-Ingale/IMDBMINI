@@ -1,7 +1,9 @@
-let favouriteList = JSON.parse(localStorage.getItem("favouritelist")) || [];
+// collecting elements from DOM
 const container = document.getElementById('content-holder');
+// local array to store favourites
+let favouriteList = JSON.parse(localStorage.getItem("favouritelist")) || [];
 
-// geting the movie id and caliing the API
+// geting the movie id and caling the API
 let searchID = '';
 const urlParams = new URLSearchParams(location.search);
 for(const [key, value]of urlParams){
@@ -9,6 +11,7 @@ for(const [key, value]of urlParams){
 }
 searchAPICall();
 
+// funtion to call the API
 async function searchAPICall() {
     await fetch(`https://www.omdbapi.com/?i=${searchID}&apikey=98a5a9c1`)
         .then((response) => response.json())
@@ -17,11 +20,14 @@ async function searchAPICall() {
         });
 }
 
+// Displat Results
 function displayResult(movie) {
     let isFavourite = "", moviePoster = "";
+    // if content is already in favourites make heart icon red
     if(favouriteList.includes(searchID)){
         isFavourite = "text-danger";
     }
+    // check if movie poster exist or not if not give default image
     if (movie.Poster) {
         moviePoster = movie.Poster;
     }
@@ -75,10 +81,11 @@ function displayResult(movie) {
     container.appendChild(card);
 }
 
+// Add/Remove the content from favourites
 function toggleFavourite(movieID){
     favBtn = document.getElementById(movieID);
     favBtn.classList.toggle('text-danger');
-    // to remove the duplicacy of fav. movie
+    // to handle the duplicacy/removal of Content
     if (favouriteList.includes(movieID)) {
         let index = favouriteList.indexOf(movieID);
         favouriteList.splice(index, 1);
@@ -88,6 +95,7 @@ function toggleFavourite(movieID){
         tooltip.update();
         return;
     }
+    // to add the content 
     else {
         favouriteList.push(movieID);
         localStorage.setItem("favouritelist", JSON.stringify(favouriteList))

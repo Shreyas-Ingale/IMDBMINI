@@ -1,7 +1,10 @@
+// collecting elements from DOM
 const list = document.getElementById('fav-list');
 const clearAll = document.getElementById('clear-all');
+// local array to store favourites
 let favouriteList = JSON.parse(localStorage.getItem("favouritelist")) || [];
 
+// Event listners on the Clear ALL button
 clearAll.addEventListener('click', function () {
     favouriteList = [];
     localStorage.setItem("favouritelist", JSON.stringify(favouriteList));
@@ -21,21 +24,24 @@ clearAll.addEventListener('click', function () {
     }
 })();
 
-
+// Make fetch call to OMDB API
 async function getAPICall(id) {
     await fetch(`https://www.omdbapi.com/?i=${id}&apikey=98a5a9c1`)
         .then((response) => response.json())
         .then((data) => { console.log(data); renderList(data) });
 }
 
+// Display the results
 function renderList(movie) {
     let moviePoster = "";
+    // check if movie poster exist or not if not give default image
     if (movie.Poster) {
         moviePoster = movie.Poster;
     }
     else {
         moviePoster = "../images/notfound.png";
     }
+    // link for more details about each content
     let movieURL = "moviePage.html?id=" + movie.imdbID;
     const listItem = document.createElement('div');
     listItem.classList.add('col');
@@ -73,6 +79,7 @@ function renderList(movie) {
     list.appendChild(listItem);
 }
 
+// handle delete event on each content
 function deleteBtn(id) {
     let i = favouriteList.indexOf(id);
     console.log("Delete ID : ",id);

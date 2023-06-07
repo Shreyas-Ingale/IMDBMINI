@@ -1,11 +1,13 @@
+// collecting elements from DOM
 const searchBar = document.getElementById('movie-search');
 const resultList = document.getElementById('search-list');
-
+// local array to store favourites
 let favouriteList = JSON.parse(localStorage.getItem("favouritelist")) || [];
-
+// Event listners on the search bar 
 searchBar.addEventListener("search", initiateSearch);
 searchBar.addEventListener("keyup", initiateSearch);
 
+// Make fetch call to OMDB API
 function searchAPICall(searchInput) {
     fetch(`https://www.omdbapi.com/?s=${searchInput}&page=1&apikey=98a5a9c1`)
         .then((response) => response.json())
@@ -14,6 +16,7 @@ function searchAPICall(searchInput) {
         });
 }
 
+// Function to handle the events on Search Bar
 function initiateSearch() {
     let searchInput = (searchBar.value).trim();
     if (searchInput.length > 0) {
@@ -27,11 +30,12 @@ function initiateSearch() {
     }
 }
 
+// Display the search results
 async function displayResult(result) {
     let moviePoster = "", movieCast = "", movieURL = "";
     resultList.innerHTML = "";
     for (let i = 0; i < result.length; i++) {
-        console.log(i, result[i].Title);
+        // check if movie poster exist or not if not give default image
         if (result[i].Poster != "N/A") {
             moviePoster = result[i].Poster;
         }
@@ -42,6 +46,7 @@ async function displayResult(result) {
         movieURL = "assist/moviePage.html?id=" + result[i].imdbID;
         movieListItem.setAttribute('href', movieURL);
         movieListItem.classList.add('list-group-item', 'd-flex', 'flex-row', 'justify-content-between', 'list-group-item-action');
+        // call this function to make api call for cast
         movieCast =  await fetchMovieDetails(result[i].imdbID);
         movieListItem.innerHTML = `
             <span class="align-self-center"><img src="${moviePoster}" alt="poster" width="70" height="90"></span>
@@ -54,11 +59,14 @@ async function displayResult(result) {
         `;
         resultList.appendChild(movieListItem);
         const small = document.getElementById(result[i].imdbID);
+        // event listener on heart icon to add/remove movie/series to favourites
         small.addEventListener('click', function (event) { event.preventDefault(); addFavourites(result[i].imdbID); event.stopPropagation(); });
     }
+    // Check if the movie/series is already in the favourites if so make the heart icon red
     updateFavBtn();
 }
 
+// make fetch call to OMDB API for Cast of the movie/series
 async function fetchMovieDetails(id) {
     let movieCast = "";
     await fetch(`https://www.omdbapi.com/?i=${id}&apikey=98a5a9c1`)
@@ -69,6 +77,7 @@ async function fetchMovieDetails(id) {
     return movieCast;
 }
 
+// pre check to determine if movie/series is in the favourites or not
 function updateFavBtn() {
 
     favouriteList.forEach(elemID => {

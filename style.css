@@ -1,4 +1,4 @@
-
+/* General Styling*/
 ::selection{
     background-color: #ffc107;
     color: black;
@@ -12,10 +12,6 @@
     color: #ffc107 !important;
 }
 
-.nav-link:hover{
-    color: #ffc107 !important;
-}
-
 i{
     opacity: 0.9 !important;
 }
@@ -24,31 +20,27 @@ i:hover{
     opacity: 1 !important;
 }
 
+/* NavBar */
+
+.nav-link:hover{
+    color: #ffc107 !important;
+}
+
+.greeting-message{
+    opacity: 0.8 !important;
+    transition: all 0.15s ease-in;
+}
+
+.greeting-message:hover {
+    opacity: 1 !important;
+}
+
+/* Main Container */
+
 #black-div{
     min-height: 125px !important;
     max-height: 125px !important;
     overflow: visible;
-}
-
-.input-group span {
-    right: 6px;
-    top: 5px;
-}
-
-.input-group input {
-    background-color: black !important;
-    outline: none !important;
-    box-shadow: none !important;
-    color: #ffc107 !important;
-}
-
-.border-adjustment{
-    border-bottom-left-radius: 0px !important;
-    border-bottom-right-radius: 0px !important;
-}
-
-.display-none{
-    display: none !important;
 }
 
 #search-list {
@@ -64,6 +56,27 @@ i:hover{
 
 #search-list::-webkit-scrollbar {
     display: none;
+}
+
+.border-adjustment{
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.display-none{
+    display: none !important;
+
+.input-group span {
+    right: 6px;
+    top: 5px;
+}
+
+.input-group input {
+    background-color: black !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: #ffc107 !important;
+}
 }
 
 .list-group-item{
@@ -95,14 +108,7 @@ i:hover{
     color: #ffc107 !important;
 }
 
-.greeting-message{
-    opacity: 0.8 !important;
-    transition: all 0.15s ease-in;
-}
-
-.greeting-message:hover {
-    opacity: 1 !important;
-}
+/* Footer */
 
 .author{
     transition: all 0.15s ease-in;

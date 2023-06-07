@@ -7,22 +7,6 @@ body{
     min-height: 100vh !important;
 }
 
-.active{
-    color: #ffc107 !important;
-}
-
-.author{
-    transition: all 0.15s ease-in;
-}
-
-.author:hover{
-    color: #0d54be !important;
-}
-
-.nav-link:hover{
-    color: #ffc107 !important;
-}
-
 i, button{
     transition: all 0.15s ease-in-out !important;
     cursor: pointer;
@@ -30,6 +14,25 @@ i, button{
 
 i:active, button:active{
     transform: scale(0.95) !important;
+}
+
+/* NavBar */
+
+.nav-link:hover{
+    color: #ffc107 !important;
+}
+
+.active{
+    color: #ffc107 !important;
+}
+
+.greeting-message{
+    opacity: 0.8 !important;
+    transition: all 0.15s ease-in;
+}
+
+.greeting-message:hover {
+    opacity: 1 !important;
 }
 
 .img-fluid{
@@ -41,15 +44,16 @@ i:active, button:active{
     color: #dc3545 !important;
 }
 
+/* Footer */
+
 .fa-github:hover{
     color: #212529bf !important;
 }
 
-.greeting-message{
-    opacity: 0.8 !important;
+.author{
     transition: all 0.15s ease-in;
 }
 
-.greeting-message:hover {
-    opacity: 1 !important;
+.author:hover{
+    color: #0d54be !important;
 }
