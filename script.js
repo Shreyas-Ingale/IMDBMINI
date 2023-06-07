@@ -8,8 +8,8 @@ searchBar.addEventListener("search", initiateSearch);
 searchBar.addEventListener("keyup", initiateSearch);
 
 // Make fetch call to OMDB API
-function searchAPICall(searchInput) {
-    fetch(`https://www.omdbapi.com/?s=${searchInput}&page=1&apikey=98a5a9c1`)
+async function searchAPICall(searchInput) {
+    await fetch(`https://www.omdbapi.com/?s=${searchInput}&page=1&apikey=98a5a9c1`)
         .then((response) => response.json())
         .then((data) => {
             if (data.Response == "True") displayResult(data.Search);
@@ -17,10 +17,10 @@ function searchAPICall(searchInput) {
 }
 
 // Function to handle the events on Search Bar
-function initiateSearch() {
+async function initiateSearch() {
     let searchInput = (searchBar.value).trim();
     if (searchInput.length > 0) {
-        searchAPICall(searchInput);
+        await searchAPICall(searchInput);
         resultList.classList.remove('display-none');
         searchBar.classList.add('border-adjustment');
     }
