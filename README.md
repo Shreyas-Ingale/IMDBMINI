@@ -29,6 +29,6 @@ Simply download the Zip File and run on your system
 
 
 ### Preview of the app
-![Main Page](https://github.com/Shreyas-Ingale/IMDBMINI/assets/127759325/e12aee94-c6a6-4afd-a535-3b03eefddb66)
+![Index Page](https://github.com/Shreyas-Ingale/IMDBMINI/assets/127759325/66c2bc81-f655-4bf4-8367-399676264145)
 ![Details Page](https://github.com/Shreyas-Ingale/IMDBMINI/assets/127759325/d757501e-03f8-45ad-80e6-1c0ee3862784)
 ![Favourites Page](https://github.com/Shreyas-Ingale/IMDBMINI/assets/127759325/3b145e03-4fb2-4c2b-b8a3-20c6aaa576f7)
