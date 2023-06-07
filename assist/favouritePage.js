@@ -36,13 +36,14 @@ function renderList(movie) {
     else {
         moviePoster = "../images/notfound.png";
     }
+    let movieURL = "moviePage.html?id=" + movie.imdbID;
     const listItem = document.createElement('div');
     listItem.classList.add('col');
     listItem.innerHTML = `
     <div class="card text-bg-dark border-secondary">
         <div class="row g-0">
             <div class="col-lg-4">
-                <img src="${moviePoster}" class="img-fluid h-100 rounded-start" alt="Poster">
+                <a href="${movieURL}"><img src="${moviePoster}" class="img-fluid h-100 rounded-start" alt="Poster"></a>
             </div>
             <div class="col-lg-8">
                 <div class="card-body">
