@@ -27,7 +27,7 @@ function initiateSearch() {
     }
 }
 
-function displayResult(result) {
+async function displayResult(result) {
     let moviePoster = "", movieCast = "", movieURL = "";
     resultList.innerHTML = "";
     for (let i = 0; i < result.length; i++) {
@@ -42,11 +42,7 @@ function displayResult(result) {
         movieURL = "assist/moviePage.html?id=" + result[i].imdbID;
         movieListItem.setAttribute('href', movieURL);
         movieListItem.classList.add('list-group-item', 'd-flex', 'flex-row', 'justify-content-between', 'list-group-item-action');
-        fetch(`https://www.omdbapi.com/?i=${result[i].imdbID}&apikey=98a5a9c1`)
-            .then((response) => response.json())
-            .then((data) => {
-                movieCast = data.Actors;
-            });
+        movieCast =  await fetchMovieDetails(result[i].imdbID);
         movieListItem.innerHTML = `
             <span class="align-self-center"><img src="${moviePoster}" alt="poster" width="70" height="90"></span>
             <div class="d-flex flex-column w-75 justify-content-between">
@@ -61,6 +57,16 @@ function displayResult(result) {
         small.addEventListener('click', function (event) { event.preventDefault(); addFavourites(result[i].imdbID); event.stopPropagation(); });
     }
     updateFavBtn();
+}
+
+async function fetchMovieDetails(id) {
+    let movieCast = "";
+    await fetch(`https://www.omdbapi.com/?i=${id}&apikey=98a5a9c1`)
+    .then((response) => response.json())
+    .then((data) => {
+        movieCast =  data.Actors;
+    });
+    return movieCast;
 }
 
 function updateFavBtn() {
